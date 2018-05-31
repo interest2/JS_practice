@@ -1,0 +1,21 @@
+ul{
+    list-style: none;
+}
+.content{
+    width: 300px;
+    text-align: left;
+    margin: 0 auto;
+    background: #ececec;
+}
+a{
+    text-decoration: none;
+    color: dodgerblue;
+    display: block;
+    height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+}
+a:hover{
+    color:white;
+    background: lightseagreen;
+}

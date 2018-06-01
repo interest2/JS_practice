@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大不自多</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: orange;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .box{
+            position: absolute;
+            width: 410px;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+        }
+        #white{
+            position: absolute;
+            color: white;
+        }
+        #red{
+            position: absolute;
+            color: dodgerblue;
+            font-size: 1.5rem;
+            clip:rect(0px,410px,30px,0px);
+        }
+        #mask{
+            position: absolute;
+            width:0px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div id="white">大不自多 海纳百川 惟学无际 际于天地</div>
+    <div id="red">大不自多 海纳百川 惟学无际 际于天地</div>
+    <div id="mask"></div>
+</div>
+
+<script>
+    var mask=document.getElementById('mask');
+    var red=document.getElementById('red');
+
+    timer=setInterval(move,50)
+    function move(){
+        mask.style.width=mask.offsetWidth+3+'px';
+        clip();
+    }
+    setTimeout(function () {
+        clearInterval(timer);
+    },9000)
+
+    function clip() {
+        var top = mask.offsetTop;
+        var right = mask.offsetLeft + mask.offsetWidth;
+        var bottom = mask.offsetTop + mask.offsetHeight;
+        var left = mask.offsetLeft;
+        red.style.clip = "rect(" + top + "px," + right + "px," + bottom + "px," + left + "px)";
+    }
+</script>
+</body>
+</html>

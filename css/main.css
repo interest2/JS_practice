@@ -1,5 +1,5 @@
 body{
-    position: relative;
+    /*position: relative;*/
 }
 
 ul{
@@ -11,7 +11,7 @@ ul{
     text-align: left;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,100%);
+    transform: translate(-50%,-50%);
     /*margin-left: -150px;*/
     /*margin-top: -100px;*/
     background: #ececec;
@@ -27,4 +27,13 @@ a{
 a:hover{
     color:white;
     background: lightseagreen;
+}
+
+footer{
+    position: absolute;
+    top: 95%;
+    text-align: center;
+    width: 240px;
+    left:50%;
+    margin-left: -120px;
 }

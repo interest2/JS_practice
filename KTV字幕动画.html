@@ -48,7 +48,7 @@
 
 <script>
     var mask=document.getElementById('mask');
-    var red=document.getElementById('red');
+    var blue=document.getElementById('blue');
 
     timer=setInterval(move,50)
     function move(){
@@ -64,7 +64,7 @@
         var right = mask.offsetLeft + mask.offsetWidth;
         var bottom = mask.offsetTop + mask.offsetHeight;
         var left = mask.offsetLeft;
-        red.style.clip = "rect(" + top + "px," + right + "px," + bottom + "px," + left + "px)";
+        blue.style.clip = "rect(" + top + "px," + right + "px," + bottom + "px," + left + "px)";
     }
 </script>
 </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        width: 560px;
+        height: 460px;
+        position: relative;
+        left: 200px;
+        border: 2px solid black;
+    }
+    .obj{
+        position: absolute;
+        width:60px;
+        height: 60px;
+        left:200px;
+        background-color: lightskyblue;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="obj" id="ob"></div>
+    </div>
+
+    <script>
+        ob=document.getElementById('ob');
+        var timer=null;
+        var flag1=1,
+            flag2=1;
+
+        function bounce() {
+            timer=setInterval(move,20);
+        }
+
+        function move() {
+            hor();
+            ver();
+            if(ob.offsetLeft>500 ||ob.offsetLeft<0){
+                flag1=-flag1;
+                hor();
+            }
+            if(ob.offsetTop>400 ||ob.offsetTop<0){
+                flag2=-flag2;
+                ver();
+            }
+        }
+        bounce();
+        function hor() {
+            var delta=flag1==1?4:-4;
+            ob.style.left=ob.offsetLeft+delta+'px';
+        }
+        function ver() {
+            var delta=flag2==1?4:-4;
+            ob.style.top=ob.offsetTop+delta+'px';
+        }
+
+
+        // 定时类型的往复运动
+        // function moveLoop() {
+        //     flag++;
+        //     setTimeout(function () {
+        //         clearInterval(timer);
+        //         timer=setInterval(move,20);
+        //         moveLoop()
+        //     },2000);
+        // }
+        // moveLoop();
+    </script>
+</body>
+</html>

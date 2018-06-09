@@ -58,7 +58,7 @@
         bar.onmousemove=getVel;
         function getVel(event) {
             var e=event;
-            x=e.clientX;
+            x=e.clientX-100;
         }
 
         
@@ -82,7 +82,7 @@
         
         function hor() {
             var delta=flag1==1?4:-4;
-            ob.style.left=ob.offsetLeft+x/80*delta+'px';
+            ob.style.left=ob.offsetLeft+x/100*delta+'px';
         }
         function ver() {
             var delta=flag2==1?4:-4;

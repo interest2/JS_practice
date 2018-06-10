@@ -27,29 +27,42 @@
     }
     .control{
         position: absolute;
-        left: 50%;
-        margin-left: -280px;
-        margin-top: 120px;
+        top: -100px;
         text-align: center;
         font-size: 30px;
     }
     .bar{
-        width: 560px;
+        width: 564px;
         height: 50px;
-        background: linear-gradient(to right,greenyellow,red);
+        background: linear-gradient(to right,dodgerblue,red);
+    }
+    .control p{
+        margin: 0;
+    }
+    .btn{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #000;
+        z-index: 99;
     }
 </style>
 <body>
-    <div class="box">
+    <!--<div class="btn" id="btn" style="left:100px;top:100px"></div>-->
+
+    <div class="box" id="box">
+        <div class="control">
+            <p>鼠标滑过颜色条来控制球速</p>
+            <div class="bar" id="bar"></div>
+        </div>
         <div class="obj" id="ob"></div>
     </div>
-    <div class="control">
-        <div class="bar" id="bar"></div>
-        <div>鼠标滑过速度条来控制球速</div>
-    </div>
+
 
     <script>
         ob=document.getElementById('ob');
+        box=document.getElementById('box');
+
         var timer=null;
         var flag1=1,
             flag2=1;
@@ -58,10 +71,9 @@
         bar.onmousemove=getVel;
         function getVel(event) {
             var e=event;
-            x=e.clientX-100;
+            x=e.clientX-(box.offsetLeft-289);
         }
 
-        
         bounce();
         function bounce() {
             timer=setInterval(move,20);
@@ -79,7 +91,7 @@
                 ver();
             }
         }
-        
+
         function hor() {
             var delta=flag1==1?4:-4;
             ob.style.left=ob.offsetLeft+x/100*delta+'px';
@@ -88,18 +100,7 @@
             var delta=flag2==1?4:-4;
             ob.style.top=ob.offsetTop+x/50*delta+'px';
         }
-
-
-        // 定时类型的往复运动
-        // function moveLoop() {
-        //     flag++;
-        //     setTimeout(function () {
-        //         clearInterval(timer);
-        //         timer=setInterval(move,20);
-        //         moveLoop()
-        //     },2000);
-        // }
-        // moveLoop();
     </script>
+    <script src="js/drag.js"></script>
 </body>
 </html>
